@@ -72,13 +72,13 @@ class ToneGenerator(object):
  
 generator = ToneGenerator()
  
-frequency_start = 10        # Frequency to start the sweep from
-frequency_end = 10   # Frequency to end the sweep at
+frequency_start = 30        # Frequency to start the sweep from
+frequency_end = 30   # Frequency to end the sweep at
 num_frequencies = 1      # Number of frequencies in the sweep
-amplitude = 0.1          # Amplitude of the waveform
-step_duration = 10        # Time (seconds) to play at each step
+amplitude = 1          # Amplitude of the waveform
+step_duration = 10       # Time (seconds) to play at each step
 
-time.sleep(7) #Para el proceso 4 segundos
+time.sleep(0) #Para el proceso 4 segundos
 
 a=time.time()
 for frequency in numpy.logspace(math.log(frequency_start, 10),

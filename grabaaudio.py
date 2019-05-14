@@ -17,7 +17,7 @@ CHUNK = 1048  # CAntidad de frames por buffer
 FORMAT = pyaudio.paInt16  # SI CAMBIO EL TIPO DE DATO CAMBIAR EL VARIABLE AUDIO
 CHANNELS = 1
 RATE = 44100
-RECORD_SECONDS = 15
+RECORD_SECONDS = 11
 WAVE_OUTPUT_FILENAME = "output.wav"
  
 p = pyaudio.PyAudio()  # Configura el sistema de PortAudio
@@ -67,31 +67,31 @@ p.terminate()    # termina la sesion de portaudio
 time = []
  
  
-audio = np.fromstring(b''.join(frames),dtype=np.int16)
- 
-t = np.linspace(0,RECORD_SECONDS,num=audio.size)
-plt.plot(t,audio)
-plt.xlabel('Tiempo [s]')
-plt.ylabel('Cuentas')
-plt.grid()    
-plt.show()
-plt.xlim((5.10, 5.20))
-print(min(audio[t>6]) , max(audio[t>6]))
-
-plt.figure(2)
-vppval=1.999
-audiocorr= audio*vppval/(2*2**15)
-t = np.linspace(0,RECORD_SECONDS,num=audiocorr.size)
-plt.plot(t,audiocorr)
-plt.xlabel('Tiempo [s]')
-plt.ylabel('Volt')
-plt.grid()    
-plt.show()
-plt.xlim((5.10, 5.20))
-print(min(audiocorr[t>6]) , max(audiocorr[t>6]))
-print(-min(audiocorr[t>6]) + max(audiocorr[t>6]))
-
-
-
-import scipy.io.wavfile
-scipy.io.wavfile.write('archivo.wav', 44100, audio)
+#audio = np.frombuffer(b''.join(frames),dtype=np.int16)
+# 
+#t = np.linspace(0,RECORD_SECONDS,num=audio.size)
+#plt.plot(t,audio)
+#plt.xlabel('Tiempo [s]')
+#plt.ylabel('Cuentas')
+#plt.grid()    
+#plt.show()
+#plt.xlim((5.10, 5.20))
+#print(min(audio[t>6]) , max(audio[t>6]))
+#
+#plt.figure(2)
+#vppval=1.999
+#audiocorr= audio*vppval/(2*2**15)
+#t = np.linspace(0,RECORD_SECONDS,num=audiocorr.size)
+#plt.plot(t,audiocorr)
+#plt.xlabel('Tiempo [s]')
+#plt.ylabel('Volt')
+#plt.grid()    
+#plt.show()
+#plt.xlim((5.10, 5.20))
+#print(min(audiocorr[t>6]) , max(audiocorr[t>6]))
+#print(-min(audiocorr[t>6]) + max(audiocorr[t>6]))
+#
+#
+#
+#import scipy.io.wavfile
+#scipy.io.wavfile.write('archivo.wav', 44100, audio)
